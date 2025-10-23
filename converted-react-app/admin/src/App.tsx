@@ -4,6 +4,8 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import ProductsPage from "./pages/Products";
 import OrdersPage from "./pages/Orders";
+import UsersPage from "./pages/Users";
+import UserDetailPage from "./pages/UserDetail";
 
 function App() {
   return (
@@ -14,7 +16,8 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="products" element={<ProductsPage />} />
             <Route path="orders" element={<OrdersPage />} />
-            {/* TODO: Add more routes */}
+            <Route path="users" element={<UsersPage />} />
+            <Route path="users/:id" element={<UserDetailPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
