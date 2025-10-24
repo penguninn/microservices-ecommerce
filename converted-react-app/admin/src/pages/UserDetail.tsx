@@ -21,6 +21,8 @@ import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react";
 import { Avatar, AvatarFallback } from "../components/ui/avatar";
 import AppLineChart from "../components/charts/AppLineChart";
 import { Button } from "../components/ui/button";
+import { Sheet, SheetTrigger } from "../components/ui/sheet";
+import EditUser from "../components/forms/EditUser";
 
 const UserDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -157,7 +159,20 @@ const UserDetailPage = () => {
           <div className="bg-primary-foreground p-4 rounded-lg">
             <div className="flex items-center justify-between">
               <h1 className="text-xl font-semibold">User Information</h1>
-              <Button disabled>Edit User</Button>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button>Edit User</Button>
+                </SheetTrigger>
+                <EditUser
+                  defaultValues={{
+                    fullName: `${user.firstName} ${user.lastName}`,
+                    email: user.email,
+                    phone: "+1 234 5678",
+                    address: "123 Main St",
+                    city: "New York",
+                  }}
+                />
+              </Sheet>
             </div>
             <div className="space-y-4 mt-4">
               <div className="flex flex-col gap-2 mb-8">
